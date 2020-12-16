@@ -330,16 +330,7 @@ class MainPage(RenderableLivePage):
         return ctx.tag(**attribs)
 
     def render_version(self, ctx, data):
-        if G.application.snap:
-            revstring = revision + ' SNAP'
-        else:
-            revstring = revision
-        return [tags.p()["Version: %s" % release],
-                tags.p()["Revision: ",
-                         tags.a(href='%s/commits/%s' % (self.config.baseGitWebURL, revision),
-                                target='_blank')[revstring]
-                        ]
-               ]
+        return [tags.p()["Version: %s" % release]]
 
     def handleTestPrintMsg(self, client, message):
         """
@@ -418,7 +409,7 @@ class MainPage(RenderableLivePage):
         (This is used where the user goes file|open when their
         package is changed and needs saving)
         """
-        
+
         try:
             filename = Path(filename, 'utf-8')
         except:
