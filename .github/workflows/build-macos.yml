@@ -17,7 +17,9 @@ jobs:
         uses: gabrielfalcao/pyenv-action@v5
         with:
           default: 2.7.13
-          command: easy_install pip
+          command: |
+            easy_install pip
+            pip install --upgrade pip
 
       - name: Install requirements
         run: |
