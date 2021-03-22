@@ -10,12 +10,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install obsolete python and pip
+        uses: gabrielfalcao/pyenv-action@v5
+        with:
+          default: 2.7.13
+          command: easy_install pip
+
       - name: Install requirements
         run: |
-          brew install pyenv
-          env PYTHON_CONFIGURE_OPTS="--enable-framework" pyenv install 2.7.13
-          pyenv shell 2.7.13
-          easy_install pip
           brew install libjpeg
           pip install py2app
           pip install Pillow
