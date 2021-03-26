@@ -50,6 +50,7 @@ jobs:
       - name: Build package
         run: |
           cd installs/osx
+          sed -i .bak 's/\/Volumes\/exe/\/Volumes\/untitled/g' make.py
           python make.py -p
 
       - name: Upload artifact
