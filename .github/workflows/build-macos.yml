@@ -8,10 +8,13 @@ jobs:
 
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      PYTHON_CONFIGURE_OPTS: --enable-shared
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          ref: 2.5.1
 
       - name: Install obsolete python and pip
         uses: gabrielfalcao/pyenv-action@v5
@@ -25,7 +28,7 @@ jobs:
         run: |
           brew install libjpeg
           pip install py2app
-          pip install Pillow
+          pip install Pillow==5.3.0
           pip install zope.interface
           pip install libxml2
           pip install chardet
@@ -52,5 +55,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: exe.dmg
-          path: installs/osx/exe.dmg
+          name: exe-macos
+          path: installs/osx/INTEF-exe-*.dmg

@@ -12,7 +12,7 @@ import subprocess
 os.chdir('../..')
 WDIR = os.getcwd()
 TEMPLATE = os.path.join(WDIR, 'installs/osx', 'exe.dmg')
-VOL = '/Volumes/exe'
+VOL = '/Volumes/untitled'
 OUTPUT = os.path.join(WDIR, 'installs/osx')
 
 do_upload = False
