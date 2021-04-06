@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: 2.5.1
 
       - name: Install obsolete python and pip
         uses: gabrielfalcao/pyenv-action@v5
